@@ -10,7 +10,15 @@
 
 #logo {
   float: left;
-  font-size: 1.7em;
+  font-size: 1.5em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+#title {
+  text-align: left;
+  font-size: 2em;
   color: #fff;
   text-transform: uppercase;
   letter-spacing: -1px;
@@ -22,7 +30,7 @@
 }
 
 .jumbotron {
-  background-image: asset-url('jumbo-copy.jpg');
+  background-image: asset-url('basketofcookies.jpg');
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
