@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   resources :articles
 
   get 'signup', to: 'users#new'
-  get 'users', to: 'users#create'
+  resources :users, except: [:new]
 end
