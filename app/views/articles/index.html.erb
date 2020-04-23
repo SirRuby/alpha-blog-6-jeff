@@ -1,4 +1,4 @@
-<h1 class="text-center mt-4">Listing all Cookies</h1>
+<h1 class="text-center mt-4">Listing all Posts</h1>
 
 <div class="container">
   <% @articles.each do |article| %>
@@ -6,7 +6,7 @@
       <div class="col-8 mt-4">
         <div class="card text-center shadow mb-5 bg-white rounded">
           <div class="card-header font-italic">
-            by Staff
+            by <%= article.user.username if article.user %>
           </div>
           <div class="card-body">
             <h5 class="card-title"><%= link_to article.title, article_path(article), class: "text-info" %></h5>
@@ -32,7 +32,7 @@
     </div>
     <div class="mb-3">
       <div class="row justify-content-md-center">
-        <%= link_to '[ Create new COOKIE ]', new_article_path, class: "text-info" %>
+        <%= link_to '[ Create new post ]', new_article_path, class: "text-info" %>
       </div>
     </div>
   <% end %>
