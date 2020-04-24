@@ -12,9 +12,10 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <%= link_to "BUILDS", articles_path, class: "dropdown-item" %>
+          <div class="dropdown-divider"></div>
           <%= link_to "NEW POST", new_article_path, class: "dropdown-item" %>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Yum</a>
+          <%= link_to "Bloggers", users_path, class: "dropdown-item" %>
         </div>
       </li>
     </ul>
