@@ -1,44 +1,52 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <%= link_to "MECH BLOG", root_path, class: "navbar-brand", id: "logo" %>
+<nav class="navbar navbar-expand-lg navbar-dark transparent navbar-inverse fixed-top">
+  <%= link_to "'THOCKERS", root_path, class: "navbar-brand", id: "logo" %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <div class="collapse navbar-collapse navbar-inner" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item dropdown">
+      <li class="nav-item dropdown text-white">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          click me
+          clickme
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <%= link_to "BUILDS", articles_path, class: "dropdown-item" %>
-          <div class="dropdown-divider"></div>
-          <%= link_to "NEW POST", new_article_path, class: "dropdown-item" %>
-          <div class="dropdown-divider"></div>
-          <%= link_to "Bloggers", users_path, class: "dropdown-item" %>
+          <%= link_to "builds", articles_path, class: "dropdown-item" %>
+          <% if logged_in? %>
+            <%= link_to "NEW POST", new_article_path, class: "dropdown-item" %>
+          <% end %>
+          <%= link_to "meet the thockers", users_path, class: "dropdown-item" %>
         </div>
       </li>
     </ul>
     <ul class="navbar-nav mr-right">
-    <% if logged_in? %>
-      <li class="nav-item">
-        <%= link_to current_user.username, user_path(current_user), class: "nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to 'Log out', logout_path, class: "nav-link", method: :delete %>
-      </li>
-    <% else %>
-      <li class="nav-item">
-        <%= link_to 'Log in', login_path, class: "nav-link" %>
-      </li>
-      <li class="nav-item">
-      <%= link_to "Sign up", signup_path, class: "nav-link" %>
-      </li>
-    <% end %>
+      <% if logged_in? %>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= current_user.username %>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to "View Profile", user_path(current_user), class: "dropdown-item" %>
+              <div class="dropdown-divider"></div>
+              <%= link_to "Edit Profile", edit_user_path(current_user), class: "dropdown-item" %>
+              <%= link_to "Delete Profile", user_path(current_user), class: "dropdown-item text-danger", method: :delete, data: { confirm: "Are you sure?" } %>
+          </li>
+        <li class="nav-item">
+          <%= link_to 'Log out', logout_path, class: "nav-link", method: :delete %>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to 'LOG IN', login_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "SIGN UP", signup_path, class: "nav-link" %>
+        </li>
+      <% end %>
     </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
-    </div>
-  </nav>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control bg-transparent mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>

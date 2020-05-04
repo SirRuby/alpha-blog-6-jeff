@@ -1,17 +1,26 @@
 @import 'bootstrap/dist/css/bootstrap';
 
-.navbar {
-  background-color: black !important;
+.navbar.transparent.navbar-inverse .navbar-inner {
+  border-width: 0px;
+  background-color: transparent !important;
+}
+.nav-link:hover {
+  transition: border 0.2s;
+  border-bottom: 1px solid white;
+  }
+.nav-item {
+  font-size: .5rem;
 }
 
 .nav-link {
-  color: white !important;
+color: whitesmoke !important;
 }
+
 
 #logo {
   float: left;
   font-size: 1.5em;
-  color: #fff;
+  color: whitesmoke;
   text-transform: uppercase;
   letter-spacing: -1px;
   font-weight: bold;
@@ -19,41 +28,56 @@
 #title {
   text-align: left;
   font-size: 2em;
-  color: #fff;
+  color: whitesmoke;
   text-transform: uppercase;
   letter-spacing: -1px;
   font-weight: bold;
 }
 
 #home-container {
-  margin-top: 25px;
+  margin-top: 0px;
 }
 
 .jumbotron {
   background-image: asset-url('mechpic.jpg');
+  border-radius: 0px;
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 425px;
+  height: 600px;
+  margin-top: -20px;
+  margin-bottom: 0px;
+  margin:0;
+  padding-left: 1px;
+  font-size:60px;
+  line-height:30px;
+
+}
+.jumbotron > .container {
+   position: relative;
+   top: 50%;
+   transform: translateY(-50%);
 }
 
 .article-meta-details {
-  border-top: 1px solid #eaeaea;
-  margin-top: 15px;
+  border-top: 1px solid whitesmoke;
+  margin-top: 25px;
 }
 
 html,
 body {
+  font-family: "Nunito", sans-serif;
   height: 100%;
 }
 
 #page-content {
   flex: 1 0 auto;
-  background-color: lightgrey;
+  background-color: gray;
 }
 
 #sticky-footer {
   flex-shrink: none;
+  background-color: black;
 }
 
 /* pagination styling */

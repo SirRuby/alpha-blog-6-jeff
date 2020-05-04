@@ -5,10 +5,15 @@ class ApplicationController < ActionController::Base
   def current_user
     @current_user ||= User.find(session[:user_id])  if session[:user_id]
   end
-  #memoization to prevent multiple queries for current_user in the database
 
   def logged_in?
     !!current_user
   end
-  #turn current_user instance variable into a true/false boolean to check if current user exists
+
+  def require_user
+    if !logged_in?
+      flash[:alert] = "You must be logged in to perform that action."
+      redirect_to login_path
+    end
+  end
 end
